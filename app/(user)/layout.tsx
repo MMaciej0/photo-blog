@@ -10,7 +10,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body>
+      <body className="scrollbar scrollbar-w-1 scrollbar-thumb-gray-900 scrollbar-track-gray-700">
         <Navbar />
         <Banner />
         {children}

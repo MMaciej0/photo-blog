@@ -11,7 +11,7 @@ const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!;
 
 export default defineConfig({
   basePath: '/studio',
-  title: 'Cycling Sneak Peek',
+  title: 'Cycling Own Type',
   projectId,
   dataset,
 

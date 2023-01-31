@@ -11,7 +11,7 @@ function Logo(props: any) {
         src="/bicycle.png"
         alt="logo"
       />
-      Sneak Peek Studio
+      Content Studio
     </div>
   );
 }
