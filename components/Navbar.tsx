@@ -10,14 +10,15 @@ function Navbar() {
     const handler = () => {
       if (navRef.current) {
         if (window.scrollY > 50) {
-          navRef.current.style.display = 'none';
+          navRef.current.classList.add('hidden');
           if (window.scrollY > window.innerHeight / 2) {
-            navRef.current.style.display = 'flex';
-            navRef.current.style.backgroundColor = 'rgb(55 65 81)';
+            navRef.current.classList.remove('hidden');
+            navRef.current.classList.remove('bg-transparent');
+            navRef.current.classList.add('bg-gray-700');
           }
         } else {
-          navRef.current.style.display = 'flex';
-          navRef.current.style.backgroundColor = 'transparent';
+          navRef.current.classList.remove('bg-gray-700');
+          navRef.current.classList.remove('hidden');
         }
       }
     };
@@ -32,25 +33,25 @@ function Navbar() {
     >
       <Link
         href="/"
-        className="text-white lg:mx-6 mx-3 hover:text-primary-green ease-linear duration-300"
+        className="text-white sm:mx-10 mx-3 hover:text-primary-green ease-linear duration-300"
       >
         Home
       </Link>
       <Link
         href="/about"
-        className="text-white lg:mx-6 mx-3 hover:text-primary-green ease-linear duration-300"
+        className="text-white sm:mx-10 mx-3 hover:text-primary-green ease-linear duration-300"
       >
         About
       </Link>
       <Link
         href="/albums"
-        className="text-white lg:mx-6 mx-3 hover:text-primary-green ease-linear duration-300"
+        className="text-white sm:mx-10 mx-3 hover:text-primary-green ease-linear duration-300"
       >
         Albums
       </Link>
       <Link
         href="/contact"
-        className="text-white lg:mx-6 mx-3 hover:text-primary-green ease-linear duration-300"
+        className="text-white sm:mx-10 mx-3 hover:text-primary-green ease-linear duration-300"
       >
         Contact
       </Link>
