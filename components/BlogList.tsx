@@ -1,4 +1,4 @@
-import BlogListNav from './BlogListNav';
+import TabPanel from './TabPanel';
 
 type Props = {
   posts: Post[];
@@ -7,7 +7,7 @@ type Props = {
 function BlogList({ posts }: Props) {
   return (
     <div>
-      <BlogListNav />
+      <TabPanel />
       <div>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni enim
         dolorum earum ducimus deserunt? Quasi cumque modi eos libero nam atque
