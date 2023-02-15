@@ -31,7 +31,7 @@ export default async function Home() {
   }
   const posts = await client.fetch(query);
   return (
-    <main>
+    <main className="max-w-7xl mx-auto">
       <BlogList posts={posts} />
     </main>
   );
