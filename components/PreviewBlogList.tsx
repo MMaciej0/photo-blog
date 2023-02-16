@@ -1,6 +1,7 @@
 'use client';
 
 import { usePreview } from '@/lib/sanity.preview';
+import Post from './Post';
 
 type Props = {
   query: string;
@@ -8,8 +9,15 @@ type Props = {
 
 function PreviewBlogList({ query }: Props) {
   const posts = usePreview(null, query);
-  console.log('loading', posts);
-  return <div>PrevieBlogList</div>;
+  return (
+    <div className="container mx-auto my-16">
+      <div className="grid lg:grid-cols-2 gap-12">
+        {posts.map((post: Post) => (
+          <Post key={post._id} post={post} />
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default PreviewBlogList;
