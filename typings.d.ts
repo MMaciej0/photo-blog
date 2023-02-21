@@ -66,3 +66,8 @@ interface Title {
   _type: 'string';
   current: string;
 }
+
+interface CategoryDropDown {
+  _id: string;
+  title: string;
+}

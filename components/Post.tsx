@@ -5,10 +5,10 @@ import ClientSideRoute from './ClientSideRoute';
 function Post({ post }: { post: Post }) {
   return (
     <ClientSideRoute route={`/post/${post.slug.current}`}>
-      <div className="group cursor-pointer">
-        <div className="relative w-full h-96 drop-shadow-md group-hover:scale-105 transition-transform duration-300 ease-out">
+      <div className="group cursor-pointer mx-2 rounded overflow-hidden">
+        <div className="relative w-full h-96 drop-shadow-md">
           <Image
-            className="object-cover object-center"
+            className="object-cover object-center group-hover:scale-105 transition-transform duration-300 ease-out"
             src={urlFor(post.mainImage).url()}
             alt={post.title}
             fill
@@ -19,7 +19,7 @@ function Post({ post }: { post: Post }) {
               {post.categories?.map((cat) => (
                 <p
                   key={cat._id}
-                  className="font-bold tracking-wide bg-primary-green rounded-full p-2"
+                  className="text-center font-bold tracking-wide bg-primary-green rounded-full p-2"
                 >
                   {cat.title}
                 </p>

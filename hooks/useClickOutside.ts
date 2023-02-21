@@ -1,12 +1,20 @@
-import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
+import {
+  Dispatch,
+  MutableRefObject,
+  SetStateAction,
+  useEffect,
+  useRef,
+} from 'react';
 
-export const useClickOutside = (handler: Dispatch<SetStateAction<boolean>>) => {
+export const useClickOutside = (
+  handler: Dispatch<SetStateAction<boolean>>
+): MutableRefObject<any> => {
   const domNode = useRef<any>(null);
 
   useEffect(() => {
     const funcHandler = (e: MouseEvent) => {
       if (!domNode.current?.contains(e.target as Node)) {
-        handler;
+        handler();
       }
     };
     document.addEventListener('click', funcHandler);

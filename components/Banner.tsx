@@ -1,10 +1,10 @@
 function Banner() {
   return (
     <div
-      className="shadow-slate-400 shadow-lg relative bg-fixed bg-bottom bg-no-repeat bg-cover w-full h-full"
+      className="shadow-slate-400 shadow-lg relative bg-fixed bg-center bg-no-repeat bg-cover w-full h-full"
       style={{ backgroundImage: `url('/banner.jpg')` }}
     >
-      <div className="h-[50vh] w-full relative">
+      <div className="h-[60vh] w-full relative">
         <div className="text-center rounded-md backdrop-blur-md absolute left-[50%] translate-x-[-50%] top-[22%]">
           <h1 className="text-white text-4xl font-serif tracking-widest">
             Cycling Own Type

@@ -3,13 +3,13 @@ import TabPanel from './TabPanel';
 
 type Props = {
   posts: Post[];
+  categories: CategoryDropDown[];
 };
 
-function BlogList({ posts }: Props) {
-  console.log(posts[0].categories);
+function BlogList({ posts, categories }: Props) {
   return (
     <div className="container mx-auto my-16">
-      <TabPanel />
+      <TabPanel categories={categories} />
       <div className="grid lg:grid-cols-2 gap-12">
         {posts.map((post) => (
           <Post key={post._id} post={post} />

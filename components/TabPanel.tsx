@@ -6,7 +6,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { useClickOutside } from '@/hooks/useClickOutside';
 
-function TabPanel() {
+function TabPanel({ categories }: { categories: CategoryDropDown[] }) {
   const [selectedTab, setSelectedTab] = useState<number>(1);
   const [showPostOptions, setShowPostOptions] = useState<boolean>(false);
   const [selectedCategory, setSelectedCategory] = useState<string>('All Posts');
@@ -16,7 +16,7 @@ function TabPanel() {
   });
 
   return (
-    <div className="px-8 sm:px:0 py-6 mb-20">
+    <div className="px-8 sm:px:0 py-6 mb-20 z-50">
       <div className="max-w-3xl mx-auto md:w-max grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 items-center">
         <div
           className={`relative group mb-4 border-b-4 border-solid ${
@@ -40,20 +40,32 @@ function TabPanel() {
           {showPostOptions && (
             <ul
               ref={domNode}
-              className="absolute w-full bg-white border-b-primary-green border-b-4 border-solid"
+              className="text-lg z-50 absolute w-full bg-white border-b-primary-green border-b-4 border-solid"
             >
-              {['All Posts', 'Trops', 'Gear', 'Local'].map((item, i) => (
+              <li
+                onClick={(e) =>
+                  setSelectedCategory((e.target as HTMLElement).innerText)
+                }
+                className={`z-50 p-4 tracking-wide cursor-pointer hover:bg-primary-green/20 ${
+                  selectedCategory.toLowerCase() === 'all posts' &&
+                  'bg-primary-green/50 hover:bg-primary-green/50'
+                }`}
+              >
+                All Posts
+              </li>
+              {categories.map((item) => (
                 <li
-                  key={i}
+                  key={item._id}
                   onClick={(e) =>
                     setSelectedCategory((e.target as HTMLElement).innerText)
                   }
-                  className={`p-4 tracking-wide cursor-pointer hover:bg-primary-green/20 ${
-                    selectedCategory.toLowerCase() === item.toLowerCase() &&
+                  className={`z-50 p-4 tracking-wide cursor-pointer hover:bg-primary-green/20 ${
+                    selectedCategory.toLowerCase() ===
+                      item.title.toLowerCase() &&
                     'bg-primary-green/50 hover:bg-primary-green/50'
                   }`}
                 >
-                  {item}
+                  {item.title}
                 </li>
               ))}
             </ul>

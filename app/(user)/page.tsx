@@ -1,3 +1,4 @@
+import Banner from '@/components/Banner';
 import BlogList from '@/components/BlogList';
 import PreviewBlogList from '@/components/PreviewBlogList';
 import { client } from '@/lib/sanity.client';
@@ -6,12 +7,18 @@ import { previewData } from 'next/headers';
 import PreviewSuspense from '../../components/PreviewSuspense';
 
 export default async function Home() {
-  const query = groq`
+  const postsQuery = groq`
   *[_type == 'post'] {
     ...,
     author->,
     categories[]->
   } | order(_createdAt desc)
+  `;
+  const categoriesQuery = groq`
+    *[_type == 'category'] {
+      _id,
+    title
+  }
   `;
 
   if (previewData()) {
@@ -25,14 +32,18 @@ export default async function Home() {
           </div>
         }
       >
-        <PreviewBlogList query={query} />
+        <PreviewBlogList postsQuery={postsQuery} />
       </PreviewSuspense>
     );
   }
-  const posts = await client.fetch(query);
+  const posts = await client.fetch(postsQuery);
+  const categories = await client.fetch(categoriesQuery);
   return (
-    <main className="max-w-7xl mx-auto">
-      <BlogList posts={posts} />
+    <main>
+      <Banner />
+      <div className="max-w-7xl mx-auto">
+        <BlogList posts={posts} categories={categories} />
+      </div>
     </main>
   );
 }
