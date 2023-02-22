@@ -35,3 +35,15 @@ async function SinglePostPage({ params: { slug } }: Props) {
 }
 
 export default SinglePostPage;
+
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const querySlug = groq`
+  *[_type=="post"] {
+    slug
+  }
+  `;
+  const slugs: Post[] = await client.fetch(querySlug);
+  return slugs.map((slug) => ({ slug: slug.slug.current }));
+}

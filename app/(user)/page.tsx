@@ -6,6 +6,8 @@ import { groq } from 'next-sanity';
 import { previewData } from 'next/headers';
 import PreviewSuspense from '../../components/PreviewSuspense';
 
+export const revalidate = 60;
+
 export default async function Home() {
   const postsQuery = groq`
   *[_type == 'post'] {
