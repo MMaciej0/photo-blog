@@ -1,18 +1,17 @@
 'use client';
 
 import Link from 'next/link';
-import { useHide } from '@/hooks/useHide';
 import { usePathname } from 'next/navigation';
 
 function Navbar() {
-  const navRef = useHide(50, 'higher');
   const route = usePathname();
 
   return (
     <nav
-      ref={navRef}
-      className={`flex justify-center items-center px-2 fixed top-0 left-0 right-0 z-50 tracking-wide text-lg font-bold ${
-        route === '/' ? 'text-white py-1' : 'text-primary-black py-4'
+      className={`flex justify-center items-center px-2 z-50 tracking-wide text-lg font-bold ${
+        route === '/'
+          ? 'text-white py-1 absolute top-0 left-0 right-0'
+          : 'text-primary-black py-4'
       }`}
     >
       <Link

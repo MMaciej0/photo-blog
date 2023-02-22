@@ -10,15 +10,15 @@ export const useHide = (
       if (domNode.current) {
         if (sign === 'higher') {
           if (window.scrollY > scrollValue) {
-            domNode.current.classList.add('hidden');
+            domNode.current.classList.add('invisible');
           } else {
-            domNode.current.classList.remove('hidden');
+            domNode.current.classList.remove('invisible');
           }
         } else if (sign === 'lower') {
           if (window.scrollY < scrollValue) {
-            domNode.current.classList.add('hidden');
+            domNode.current.classList.add('invisible');
           } else {
-            domNode.current.classList.remove('hidden');
+            domNode.current.classList.remove('invisible');
           }
         }
       }

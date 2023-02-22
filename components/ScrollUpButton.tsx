@@ -13,7 +13,7 @@ function ScrollUpButton() {
     <button
       ref={btnRef}
       onClick={scrollUpHandler}
-      className="fixed bottom-8 right-10 z-10 bg-white border-primary-black border-2 rounded p-2 opacity-50 hover:opacity-100 hover:border-primary-green transition-all"
+      className="invisible fixed bottom-8 right-10 z-10 bg-white border-primary-black border-2 rounded p-2 opacity-50 hover:opacity-100 hover:border-primary-green transition-all"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

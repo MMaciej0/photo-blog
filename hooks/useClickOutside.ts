@@ -1,14 +1,6 @@
-import {
-  Dispatch,
-  MutableRefObject,
-  SetStateAction,
-  useEffect,
-  useRef,
-} from 'react';
+import { MutableRefObject, useEffect, useRef } from 'react';
 
-export const useClickOutside = (
-  handler: Dispatch<SetStateAction<boolean>>
-): MutableRefObject<any> => {
+export const useClickOutside = (handler: () => void): MutableRefObject<any> => {
   const domNode = useRef<any>(null);
 
   useEffect(() => {
