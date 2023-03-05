@@ -15,6 +15,11 @@ interface Post extends Base {
   description: string;
 }
 
+interface Video extends Base {
+  title: string;
+  videoUrl: string;
+}
+
 interface Author extends Base {
   bio: Block[];
   image: Image;
@@ -52,11 +57,6 @@ interface Span {
   text: string;
 }
 
-interface Category extends Base {
-  description: string;
-  title: string;
-}
-
 interface mainImage {
   _type: 'string';
   current: string;
@@ -70,4 +70,14 @@ interface Title {
 interface CategoryDropDown {
   _id: string;
   title: string;
+}
+
+interface HomePageState {
+  allPosts: Post[];
+  allVideos: Video[];
+  selectedTab: string;
+  selectedCategory: string;
+  filteredPosts: Post[];
+  filteredVideos: Video[];
+  searchValue: string;
 }

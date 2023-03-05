@@ -6,21 +6,23 @@ import { groq } from 'next-sanity';
 import { previewData } from 'next/headers';
 import PreviewSuspense from '../../components/PreviewSuspense';
 
-export const revalidate = 60;
-
 export default async function Home() {
   const postsQuery = groq`
-  *[_type == 'post'] {
-    ...,
-    author->,
-    categories[]->
-  } | order(_createdAt desc)
+    *[_type=='post']
+    {
+        ...,
+        author->,
+        'categories': categories[]->.title
+    } | order(_createdAt desc)
   `;
   const categoriesQuery = groq`
     *[_type == 'category'] {
       _id,
     title
   }
+  `;
+  const videosQuery = groq`
+  *[_type == 'video']
   `;
 
   if (previewData()) {
@@ -40,11 +42,12 @@ export default async function Home() {
   }
   const posts = await client.fetch(postsQuery);
   const categories = await client.fetch(categoriesQuery);
+  const videos = await client.fetch(videosQuery);
   return (
     <main>
       <Banner />
       <div className="max-w-7xl mx-auto">
-        <BlogList posts={posts} categories={categories} />
+        <BlogList posts={posts} categories={categories} videos={videos} />
       </div>
     </main>
   );

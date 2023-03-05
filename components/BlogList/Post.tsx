@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import urlFor from '@/lib/urlFor';
-import ClientSideRoute from './ClientSideRoute';
+import ClientSideRoute from '../ClientSideRoute';
 
 function Post({ post }: { post: Post }) {
   return (
@@ -16,12 +16,12 @@ function Post({ post }: { post: Post }) {
           <div className="absolute bottom-0 p-5 w-full flex justify-between items-center bg-opacity-20 bg-black backdrop-blur-lg rounded drop-shadow-lg text-white ">
             <h3 className="font-bold tracking-wide text-lg">{post.title}</h3>
             <div className="flex space-x-1">
-              {post.categories?.map((cat) => (
+              {post.categories?.map((cat, i) => (
                 <p
-                  key={cat._id}
+                  key={i}
                   className="text-center font-bold tracking-wide bg-primary-green rounded-full p-2"
                 >
-                  {cat.title}
+                  {cat}
                 </p>
               ))}
             </div>
