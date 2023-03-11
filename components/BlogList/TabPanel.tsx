@@ -1,4 +1,5 @@
 'use client';
+import { motion } from 'framer-motion';
 import { useState, MouseEvent, ChangeEvent } from 'react';
 import {
   ChevronDownIcon,
@@ -41,7 +42,11 @@ function TabPanel({
   };
 
   return (
-    <div className="px-8 sm:px:0 py-6 mb-20 z-50">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="px-8 sm:px:0 py-6 mb-20 z-50"
+    >
       <div className="max-w-3xl mx-auto md:w-max grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 items-center">
         <div
           className={`relative group mb-4 border-b-4 border-solid ${
@@ -119,7 +124,7 @@ function TabPanel({
           </label>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

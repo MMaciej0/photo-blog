@@ -1,6 +1,7 @@
 'use client';
 
 import { useReducer } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { homeListReducer } from '@/reducers/homeListReducer';
 import Post from './Post';
 import TabPanel from './TabPanel';
@@ -52,15 +53,17 @@ function BlogList({ posts, categories, videos }: Props) {
       />
       {/* todo filtering */}
 
-      <div className="grid lg:grid-cols-2 gap-12">
-        {state.selectedTab === 'posts'
-          ? state.filteredPosts.map((post: Post) => (
-              <Post key={post._id} post={post} />
-            ))
-          : state.filteredVideos.map((video: Video) => (
-              <Video key={video._id} video={video} />
-            ))}
-      </div>
+      <motion.div layout className="grid lg:grid-cols-2 gap-12">
+        <AnimatePresence>
+          {state.selectedTab === 'posts'
+            ? state.filteredPosts.map((post: Post) => (
+                <Post key={post._id} post={post} />
+              ))
+            : state.filteredVideos.map((video: Video) => (
+                <Video key={video._id} video={video} />
+              ))}
+        </AnimatePresence>
+      </motion.div>
     </div>
   );
 }

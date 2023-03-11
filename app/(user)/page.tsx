@@ -1,5 +1,6 @@
 import Banner from '@/components/Banner';
 import BlogList from '@/components/BlogList';
+import Navbar from '@/components/Navbar';
 import PreviewBlogList from '@/components/PreviewBlogList';
 import { client } from '@/lib/sanity.client';
 import { groq } from 'next-sanity';
@@ -44,9 +45,12 @@ export default async function Home() {
   const categories = await client.fetch(categoriesQuery);
   const videos = await client.fetch(videosQuery);
   return (
-    <main>
-      <Banner />
-      <div className="max-w-7xl mx-auto">
+    <main className="snap-y snap-mandatory h-screen overflow-y-scroll">
+      <div className="snap-start">
+        <Navbar />
+        <Banner />
+      </div>
+      <div className="max-w-7xl h-screen mx-auto snap-start snap-always">
         <BlogList posts={posts} categories={categories} videos={videos} />
       </div>
     </main>

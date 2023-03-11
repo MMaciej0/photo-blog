@@ -1,20 +1,48 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 function Banner() {
   return (
-    <div
-      className="shadow-slate-400 shadow-lg relative bg-fixed bg-center bg-no-repeat bg-cover w-full h-full"
-      style={{ backgroundImage: `url('/banner.jpg')` }}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 2 }}
+      className="flex flex-col h-screen w-full"
     >
-      <div className="h-[60vh] w-full relative">
-        <div className="text-center rounded-md backdrop-blur-md absolute left-[50%] translate-x-[-50%] top-[22%]">
-          <h1 className="text-white text-4xl font-serif tracking-widest">
-            Cycling Own Type
+      <div className="h-full relative bg-gradient-to-b from-white to-[#02257f]">
+        <div className="absolute text-center left-0 right-0 top-24">
+          <h1 className="bg-clip-text text-transparent bg-gradient-to-b from-black to-gray-400 font-bold text-[4rem] md:text-[6rem] lg:text-[10rem]">
+            CYCLING OWN TYPE
           </h1>
-          <p className="text-white py-3 tracking-widest">
-            John Doe blog & other
-          </p>
+          <h4 className="text-center text-primary-black font-extrabold tracking-wide">
+            John Doe BLOG & OTHER
+          </h4>
+        </div>
+        <div className="h-full bg-[url('/banner.jpg')] bg-fixed bg-right lg:bg-top bg-no-repeat bg-cover w-full opacity-10"></div>
+        <div className="absolute bottom-20 left-0 right-0 text-center">
+          <motion.div
+            initial={{ opacity: 0, x: '-50vw' }}
+            animate={{
+              opacity: 1,
+              x: 0,
+              rotate: 360,
+            }}
+            transition={{
+              type: 'spring',
+              mass: 4,
+              damping: 5,
+              stiffness: 20,
+            }}
+            className="scroll-info"
+          >
+            <p>
+              Scroll Down <br /> to <br /> Ride With Me
+            </p>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

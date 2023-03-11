@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import urlFor from '@/lib/urlFor';
 import ClientSideRoute from '../ClientSideRoute';
@@ -5,7 +6,13 @@ import ClientSideRoute from '../ClientSideRoute';
 function Post({ post }: { post: Post }) {
   return (
     <ClientSideRoute route={`/post/${post.slug.current}`}>
-      <div className="group cursor-pointer mx-2 rounded overflow-hidden">
+      <motion.div
+        layout
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        exit={{ opacity: 0 }}
+        className="group cursor-pointer mx-2 rounded overflow-hidden"
+      >
         <div className="relative w-full h-96 drop-shadow-md">
           <Image
             className="object-cover object-center group-hover:scale-105 transition-transform duration-300 ease-out"
@@ -27,7 +34,7 @@ function Post({ post }: { post: Post }) {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </ClientSideRoute>
   );
 }

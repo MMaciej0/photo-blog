@@ -1,6 +1,6 @@
 import Navbar from '@/components/Navbar';
 import ScrollUpButton from '@/components/ScrollUpButton';
-import '../globals.css';
+import '../../globals.css';
 
 export default function RootLayout({
   children,
@@ -10,7 +10,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        <ScrollUpButton />
+        {children}
+      </body>
     </html>
   );
 }

@@ -43,7 +43,7 @@ function PostBanner({ post }: { post: Post }) {
               <h3 className="text-lg font-bold">{post.author.name}</h3>
             </div>
             <div className="flex items-center justify-end mt-auto space-x-2">
-              {post.categories?.map((cat: Category) => (
+              {post.categories?.map((cat) => (
                 <p
                   key={cat._id}
                   className="font-bold tracking-wide bg-white text-primary-black rounded-full p-2"
