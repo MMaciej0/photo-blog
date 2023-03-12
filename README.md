@@ -9,5 +9,5 @@ Simple blog page, created in purpose to learn new technologies. I just wanted to
 3. Sanity
 4. Tailwindcss
 
-Demo: [Clicling Own Type](https://cycling-own-type-j8mxsgmkc-mmaciej0.vercel.app/
+Demo: [Cycling Own Type](https://cycling-own-type-j8mxsgmkc-mmaciej0.vercel.app/
 )
