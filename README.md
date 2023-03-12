@@ -1,15 +1,12 @@
-Simple Photo Blog Page, with Sanity CMS
+# Cycling Own Type
 
-## Getting Started
+Simple blog page, created in purpose to learn new technologies. I just wanted to compare the speed of aplications created in Next.js and pure React.js (obviously, when are created with my level of skills). The website has main functionalities like: adding new post using CMS, filtering, display single post.
 
-First, run the development server:
+##### Technologies:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+1. Next.js
+2. Typescript
+3. Sanity
+4. Tailwindcss
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Demo: [Clicling Own Type](cycling-own-type-mmaciej0.vercel.app)
