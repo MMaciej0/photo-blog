@@ -45,12 +45,12 @@ export default async function Home() {
   const categories = await client.fetch(categoriesQuery);
   const videos = await client.fetch(videosQuery);
   return (
-    <main className="snap-y snap-mandatory h-screen overflow-y-scroll">
+    <main className="no-scrollbar snap-y snap-mandatory h-screen overflow-y-scroll bg-gradient-to-b from-white to-[#101b68]">
       <div className="snap-start">
         <Navbar />
         <Banner />
       </div>
-      <div className="max-w-7xl h-screen mx-auto snap-start snap-always">
+      <div className="max-w-7xl h-screen mx-auto snap-start">
         <BlogList posts={posts} categories={categories} videos={videos} />
       </div>
     </main>

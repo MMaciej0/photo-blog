@@ -43,7 +43,7 @@ function BlogList({ posts, categories, videos }: Props) {
   };
 
   return (
-    <div className="container mx-auto my-16">
+    <div className="flex flex-col h-full">
       <TabPanel
         categories={categories}
         state={state}
@@ -51,9 +51,11 @@ function BlogList({ posts, categories, videos }: Props) {
         filterPosts={filterPosts}
         search={search}
       />
-      {/* todo filtering */}
 
-      <motion.div layout className="grid lg:grid-cols-2 gap-12">
+      <motion.div
+        layout
+        className="px-4 pb-20 grid lg:grid-cols-2 gap-12 overflow-y-auto no-scrollbar"
+      >
         <AnimatePresence>
           {state.selectedTab === 'posts'
             ? state.filteredPosts.map((post: Post) => (

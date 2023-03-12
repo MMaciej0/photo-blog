@@ -8,7 +8,7 @@ function Video({ video }: { video: Video }) {
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
       exit={{ opacity: 0 }}
-      className="mx-2 rounded overflow-hidden h-96"
+      className="mx-2 rounded overflow-hidden h-96 shadow-xl shadow-gray-800"
     >
       <iframe
         width="100%"

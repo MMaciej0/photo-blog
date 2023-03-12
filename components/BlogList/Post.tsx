@@ -11,9 +11,9 @@ function Post({ post }: { post: Post }) {
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
         exit={{ opacity: 0 }}
-        className="group cursor-pointer mx-2 rounded overflow-hidden"
+        className="group cursor-pointer mx-2 rounded overflow-hidden shadow-xl shadow-gray-800"
       >
-        <div className="relative w-full h-96 drop-shadow-md">
+        <div className="relative w-full h-96 drop-shadow-md ">
           <Image
             className="object-cover object-center group-hover:scale-105 transition-transform duration-300 ease-out"
             src={urlFor(post.mainImage).url()}
@@ -26,7 +26,7 @@ function Post({ post }: { post: Post }) {
               {post.categories?.map((cat, i) => (
                 <p
                   key={i}
-                  className="text-center font-bold tracking-wide bg-primary-green rounded-full p-2"
+                  className="text-center font-bold tracking-wide bg-primary-highlight rounded-full p-2"
                 >
                   {cat}
                 </p>

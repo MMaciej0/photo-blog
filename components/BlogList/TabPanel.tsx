@@ -50,7 +50,7 @@ function TabPanel({
       <div className="max-w-3xl mx-auto md:w-max grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 items-center">
         <div
           className={`relative group mb-4 border-b-4 border-solid ${
-            state.selectedTab === 'posts' && 'border-b-primary-green'
+            state.selectedTab === 'posts' && 'border-b-primary-highlight'
           }`}
         >
           <button
@@ -61,8 +61,8 @@ function TabPanel({
             <span>
               <ChevronDownIcon
                 onClick={() => setShowPostOptions(!showPostOptions)}
-                className={`post-chevron w-6 ml-6 stroke-2 hover:text-primary-green transition duration-300 ${
-                  showPostOptions && 'rotate-180 text-primary-green'
+                className={`post-chevron w-6 ml-6 stroke-2 hover:text-primary-highlight transition duration-300 ${
+                  showPostOptions && 'rotate-180 text-primary-highlight'
                 }`}
               />
             </span>
@@ -70,13 +70,13 @@ function TabPanel({
           {showPostOptions && (
             <ul
               ref={domNode}
-              className="text-lg z-50 absolute w-full bg-white border-b-primary-green border-b-4 border-solid"
+              className="text-lg z-50 absolute w-full bg-white border-b-primary-highlight border-b-4 border-solid"
             >
               <li
                 onClick={(e) => handleSelectCategory(e)}
-                className={`z-50 p-4 tracking-wide cursor-pointer hover:bg-primary-green/20 ${
+                className={`z-50 p-4 tracking-wide cursor-pointer hover:bg-[#7393ee]/20 ${
                   state.selectedCategory.toLowerCase() === 'all posts' &&
-                  'bg-primary-green/50 hover:bg-primary-green/50'
+                  'bg-[#7393ee] hover:bg-[#7393ee]/50'
                 }`}
               >
                 All Posts
@@ -85,10 +85,10 @@ function TabPanel({
                 <li
                   key={item._id}
                   onClick={(e) => handleSelectCategory(e)}
-                  className={`z-50 p-4 tracking-wide cursor-pointer hover:bg-primary-green/20 ${
+                  className={`z-50 p-4 tracking-wide cursor-pointer hover:bg-primary-highlight/20 ${
                     state.selectedCategory.toLowerCase() ===
                       item.title.toLowerCase() &&
-                    'bg-primary-green/50 hover:bg-primary-green/50'
+                    'bg-primary-highlight/50 hover:bg-primary-highlight/50'
                   }`}
                 >
                   {item.title}
@@ -100,7 +100,7 @@ function TabPanel({
         <div
           className={`group mb-4 border-b-4 ${
             state.selectedTab === 'videos'
-              ? 'border-b-primary-green border-solid'
+              ? 'border-b-primary-highlight border-solid'
               : ''
           }`}
         >
@@ -118,7 +118,7 @@ function TabPanel({
               value={state.searchValue}
               type="text"
               placeholder="seach..."
-              className="outline-none border-none sm:text-center text-lg"
+              className="outline-none bg-transparent border-none sm:text-center text-lg"
             />
             <MagnifyingGlassIcon className="w-6 h-6 stroke-2 group-hover:animate-pulse" />
           </label>

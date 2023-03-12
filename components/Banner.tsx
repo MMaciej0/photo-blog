@@ -10,7 +10,7 @@ function Banner() {
       transition={{ duration: 2 }}
       className="flex flex-col h-screen w-full"
     >
-      <div className="h-full relative bg-gradient-to-b from-white to-[#02257f]">
+      <div className="h-full relative">
         <div className="absolute text-center left-0 right-0 top-24">
           <h1 className="bg-clip-text text-transparent bg-gradient-to-b from-black to-gray-400 font-bold text-[4rem] md:text-[6rem] lg:text-[10rem]">
             CYCLING OWN TYPE
